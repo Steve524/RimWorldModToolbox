@@ -24,7 +24,7 @@ The user judges taste and loudness. You make the assets correct and complete.
 ## Steps
 1. Find vanilla peers (`rw_def_inspect`) for size, `graphicClass` and draw size.
 2. Write the manifest. Then make or collect the assets. Pawn and apparel art often needs a human repaint, so say so.
-3. Wire `graphicData` / `SoundDef`, then validate with `snapshot.ps1 -Forge` + `rw_validate`. Missing textures show up as warnings.
+3. Wire `graphicData` / `SoundDef`, then validate with `SNAP -Forge` + `rw_validate`. Missing textures show up as warnings.
 4. Done when every manifest row is present and wired, with QA screenshot steps for every facing.
 
 ## Tools

@@ -89,7 +89,7 @@ def load_paths(mods_arg: str | None) -> None:
             raise SystemExit('Could not find RimWorld\'s Mods folder. Run: python kit.py --mods "<path to RimWorld\\Mods>" --doctor')
         mods = found[0]
     if not mods.is_dir():
-        raise SystemExit(f"Mods folder not found: {mods}")
+        raise SystemExit(f'Mods folder not found: {mods}. Set it with: python kit.py --mods "<path to RimWorld\\Mods>" --doctor')
     home = Path.home()
     MODS = mods
     PATHS.update({
@@ -307,8 +307,11 @@ def doctor() -> int:
     line(bool(rt and "Microsoft.NETCore.App 10." in rt.stdout), ".NET 10 runtime (for DecompilerServer)", "Install the .NET 10 runtime.")
     line((TOOLBOX / "mcp" / "GABS" / "gabs.exe").is_file(), "GABS in mcp\\GABS", "See docs\\install.md, GABS.")
     gcfg = Path.home() / ".gabs" / "config.json"
-    has_rw = gcfg.is_file() and "rimworld" in json.loads(gcfg.read_text(encoding="utf-8")).get("games", {})
-    line(has_rw, "GABS has a 'rimworld' game in ~/.gabs/config.json", "See docs\\install.md, GABS.")
+    game = json.loads(gcfg.read_text(encoding="utf-8")).get("games", {}).get("rimworld") if gcfg.is_file() else None
+    line(bool(game), "GABS has a 'rimworld' game in ~/.gabs/config.json", "See docs\\install.md, GABS.")
+    if game and game.get("launchMode") == "DirectPath":
+        line(Path(game.get("target", "")).is_file(), f"GABS launch target exists: {game.get('target', '-')}",
+             "Fix 'target' in ~/.gabs/config.json, or run: gabs games doctor rimworld")
     mods_ids = set()
     for d in MODS.iterdir() if MODS.is_dir() else []:
         a = d / "About" / "About.xml"
@@ -319,7 +322,7 @@ def doctor() -> int:
     line("brrainz.rimbridgeserver" in mods_ids, "RimBridgeServer mod in Mods (in-game half of GABS)", "See docs\\install.md, RimBridgeServer.")
     line(True if "brrainz.harmony" in mods_ids else None, "Harmony mod in Mods", "Or subscribe on the Workshop. Most C# mods need it.")
     for name, exe in (("Claude Code", "claude"), ("Codex", "codex"), ("OpenCode", "opencode"),
-                      ("Antigravity CLI", "agy"), ("Muse Code", "muse")):
+                      ("Antigravity", "agy"), ("Muse Code", "muse")):
         line(True if shutil.which(exe) else None, f"{name} CLI", "Optional: install the harnesses you use.")
     print("All required checks passed." if not bad else f"{bad} required check(s) missing.")
     return 1 if bad else 0

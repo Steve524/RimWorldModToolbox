@@ -1,6 +1,6 @@
 # Delegate brief
 
-Paste this, filled in, as the task of every delegate (T3 Code: `delegate_task`; other harnesses: their subagent tool). The child sees nothing else, so inline the role file body. Don't just pass its path. Replace every `<TOOLBOX>`, `<MODS>`, `<GAME>`, `<PLAYER>`, `<RUN>`, and the same bare names inside the role file, with the real paths.
+Paste this, filled in, as the task of every delegate (T3 Code: `delegate_task`; other harnesses: their subagent tool). The child sees nothing else, so inline the role file body. Don't just pass its path. Replace every `<TOOLBOX>`, `<MODS>`, `<GAME>`, `<PLAYER>`, `<RUN>`, and the same bare names inside the role file, with the real paths. `SNAP` in a role file means the Script line below.
 
 ```
 You are the <ROLE> (<i> of <N>) on a RimWorld mod team. Do only this role.
@@ -30,7 +30,7 @@ Mod: <abs path>   Type: <type>   Round: <n>
 Goal: <1–3 lines>
 Out of scope: <list>
 Inputs: <abs paths: spec.md, refs.md, base\, candidate-r<n>\, hashes.txt, prior findings>
-Script: <TOOLBOX>\team\snapshot.ps1 (run with powershell -File)
+Script: powershell -NoProfile -ExecutionPolicy Bypass -File <TOOLBOX>\team\snapshot.ps1
 Player-data writes allowed: <from the user's consent line | none>
 <Re-review: check only open ids <S2,S5> and code changed since candidate-r<n-1>.>
 

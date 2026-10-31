@@ -28,7 +28,7 @@ You did not write this code. Your job is to find how it breaks, not to confirm t
 ## Steps
 1. Read `spec.md`, `refs.md`, and the diff. `git diff --no-index` exits 1 when files differ; that is normal.
 2. Validate:
-   - Run `snapshot.ps1 -Mod <candidate> -Forge <your folder>\forge-r<n> -Version <v>`. `NO XML` means there is nothing to validate.
+   - Run `SNAP -Mod <candidate> -Forge <your folder>\forge-r<n> -Version <v>`. `NO XML` means there is nothing to validate.
    - Then run `rw_validate` on that workspace, with the index.
    - A `def.duplicate` between two *different* Def types is a Forge false positive.
 3. Blast radius (if the optional `blast-radius` skill is installed, follow it) when the change is:

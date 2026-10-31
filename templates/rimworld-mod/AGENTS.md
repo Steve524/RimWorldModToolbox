@@ -44,7 +44,7 @@ Optional. Used by `/rimworld-team`. Remove this section if you don't need it.
 ## Build and test
 
 - Build: `<e.g. dotnet build Source/<Mod>.csproj -c Release, or "XML only, no build">`
-- Validate: `rw_validate` can't read a mod folder directly. Run `<toolbox>\team\snapshot.ps1 -Mod <this folder> -Forge <scratch> -Version <v>`, then `rw_validate` on `<scratch>`.
+- Validate: `rw_validate` can't read a mod folder directly. Run `powershell -NoProfile -ExecutionPolicy Bypass -File <toolbox>\team\snapshot.ps1 -Mod <this folder> -Forge <scratch> -Version <v>`, then `rw_validate` on `<scratch>`.
 - In game: `gabs` → `games_start rimworld`, then `<how to see this mod working: debug action, spawn X, open tab Y>`.
 - Read errors: `rimworldforge` `rw_log_analyze` on `Player.log`.
 

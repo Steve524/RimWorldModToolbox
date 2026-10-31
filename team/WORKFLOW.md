@@ -11,7 +11,7 @@ The skill that started you lists the real paths for this machine. Use them where
 | GAME | The RimWorld install folder |
 | PLAYER | RimWorld's player-data folder (`Config\`, `Saves\`, `Player.log`) |
 | RUN | `TOOLBOX\team\runs\<ModFolder>\<yyyymmdd-slug>` |
-| SNAP | `powershell -File TOOLBOX\team\snapshot.ps1` |
+| SNAP | `powershell -NoProfile -ExecutionPolicy Bypass -File TOOLBOX\team\snapshot.ps1` |
 
 **Write rule (everyone):** a delegate writes only its own `RUN\<role>-<i>\` folder and the mod globs its brief assigns. You write everything else in RUN. Inside MODS, nobody writes outside the mod folder named in the brief.
 

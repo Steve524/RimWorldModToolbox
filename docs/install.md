@@ -42,7 +42,7 @@ Download the latest `win-x64` zip from https://github.com/pardeike/DecompilerSer
 
 Download the latest `windows-amd64` zip from https://github.com/pardeike/GABS/releases and extract it to `mcp\GABS\`, so that `mcp\GABS\gabs.exe` exists.
 
-Then tell GABS about RimWorld. Either run `mcp\GABS\gabs.exe games add rimworld` and follow the prompts, or put this in `%USERPROFILE%\.gabs\config.json` (fix the path to your install):
+Then tell GABS about RimWorld (use your own RimWorld path; `--doctor` checks it exists). Either run `mcp\GABS\gabs.exe games add rimworld` and follow the prompts, or put this in `%USERPROFILE%\.gabs\config.json` (fix the path to your install):
 
 ```json
 {
@@ -80,13 +80,13 @@ python kit.py MyMod OtherMod     existing mods (folder names in Mods)
 python kit.py --new MyNewMod     a brand-new, empty mod folder
 ```
 
-That writes the skills and MCP config for every harness into each mod folder (see [harness-setup.md](harness-setup.md)), trusts the folder in Codex, Muse and the Antigravity CLI if they're installed (`--no-trust` to skip; it tells you when a harness has no config yet), and adds the kit files to the mod's git exclude.
+That writes the skills and MCP config for every harness into each mod folder (see [harness-setup.md](harness-setup.md)), trusts the folder in Codex, Muse and the Antigravity CLI if they're installed (`--no-trust` to skip; it tells you when a harness has no config yet), adds the kit files to the mod's git exclude, and writes `<Mods>\.mcp.json` (a plain file, safe there) for harnesses opened on the `Mods` folder itself.
 
 ### 8. Optional
 
 - Copy `templates\mods-folder-AGENTS.md` to `<RimWorld>\Mods\AGENTS.md` and list your core mods. The team keeps every mod compatible with them.
 - Edit `team\roster.yaml` to pick a provider, model, effort and instance count per role. Everything defaults to `inherit` (the main thread's model).
-- Optional skills the roles use if you have them installed: `diagnosing-bugs` and `blast-radius`. The role files carry the core of both, so nothing breaks without them.
+- The role files mention two optional skills, `diagnosing-bugs` and `blast-radius`. They aren't public; the role files carry the core of both, so nothing is missing without them.
 
 ## Use
 

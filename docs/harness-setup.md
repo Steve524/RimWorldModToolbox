@@ -7,7 +7,7 @@ Everything here is wired **per project folder**, never in a global harness confi
 | Harness | Project MCP servers | Project skills | Needs the folder trusted? |
 |---|---|---|---|
 | Claude Code | `.mcp.json` (+ approval in `.claude\settings.json`) | `.claude\skills\` | Yes: its trust dialog, once per folder (T3 Code accepts it when you open the project) |
-| Codex | `.codex\config.toml` (`[mcp_servers.*]`) | `.agents\skills\` | Yes: `[projects.'<path>'] trust_level = "trusted"` in `~/.codex/config.toml` |
+| Codex | `.codex\config.toml` (`[mcp_servers.*]`) | `.agents\skills\` | Yes: `[projects."<path, lowercased>"] trust_level = "trusted"` in `~/.codex/config.toml` |
 | Cursor | `.cursor\mcp.json` | `.agents\skills\`, `.cursor\skills\` | Cursor asks in its UI |
 | OpenCode | `opencode.json` (v2: servers under `mcp.servers`) | `.agents\skills\`, `.claude\skills\`, `.opencode\skills\` | No |
 | Antigravity | `.agents\mcp_config.json` (`mcpServers`, same shape as Claude) | `.agents\skills\` | Yes: `trustedWorkspaces` in `~/.gemini/antigravity-cli/settings.json` |

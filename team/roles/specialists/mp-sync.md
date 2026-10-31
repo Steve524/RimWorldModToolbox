@@ -21,7 +21,7 @@ Brought in when the RimWorld Multiplayer mod (rwmt) is one of the user's core mo
 ## Steps
 1. Find every state change in the diff or spec: gizmo actions, float menus, ticks, settings that affect simulation, `Rand` calls.
 2. Read how Multiplayer handles the vanilla equivalent:
-   - decompiler: load the Multiplayer mod's assemblies from its folder in MODS
+   - decompiler: load the Multiplayer mod's assemblies from its folder (MODS, or its Steam Workshop folder)
    - or look at its API source in that folder
 3. Write the sync spec.
 4. Done when every state change has a row and every randomness call is `Rand`.

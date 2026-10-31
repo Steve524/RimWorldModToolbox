@@ -4,7 +4,7 @@ How this toolbox got its shape: research, then council review rounds (three mode
 
 # Plan: `rimworld-team` — repeatable agentic roles workflow for RimWorld mods
 
-Status: design record, not instructions. **Current packaging is in "Round 6 change set" at the bottom** (project-only in the toolbox). Earlier sections mention a the author's global skills repo stub and global MCP gaps; those are superseded. v3 went to council round 3. The round-3 fixes went straight into the built files (see "Round 3" at the bottom). If this file and WORKFLOW.md or a role file disagree, the WORKFLOW.md or role file wins.
+Status: design record, not instructions. **Current packaging is in "Round 6 change set" at the bottom** (project-only in the toolbox). Earlier sections mention the author's global skills repo stub and global MCP gaps; those are superseded. v3 went to council round 3. The round-3 fixes went straight into the built files (see "Round 3" at the bottom). If this file and WORKFLOW.md or a role file disagree, the WORKFLOW.md or role file wins.
 
 ## Goal
 
@@ -16,14 +16,14 @@ Out of scope: picking models (roster ships as `inherit`), fixing RimWorldForge's
 
 1. Installed game is **1.6.4871** (`Version.txt`, `rw_doctor`). Target is 1.7 per the author (Steam `unstable`); installed is 1.6. Role files never hardcode a version.
 2. RimWorld scans only **top-level** folders of `Mods`. Workshop upload ships the **whole mod folder**.
-3. the skills repo's sync script **copies** skill folders. `skills/desktop/` installs only on this machine.
+3. the skills repo's sync script **copies** skill folders. `the skills repo's machine-only folder ` installs only on this machine.
 4. Forge: `rw_index` writes one shared JSON non-atomically. `rw_validate` writes `reports/validation.json`, scans only flat Forge workspaces. `rw_project_new` with no `workspace` writes into the current folder. CLI `stage` `rmtree`s `Mods/<name>`. `rw_build` writes only inside its workspace. No Def index exists yet.
 5. Decompiler: one process per harness/delegate; contexts not shared.
 6. GABS: one game, one profile, ownership lease. Some bridge tools persist `ModsConfig.xml` / settings. A running game locks mod DLLs.
 7. MP runtime test impossible today.
 8. `blast-radius` is user-invoked: read and follow by path. Its proof step writes and runs a script.
 9. T3 delegates get only the `task` text. Other providers may lack the RimWorld MCPs.
-10. Most mod folders have no own `AGENTS.md` (2 of 14).
+10. Most mod folders have no own `AGENTS.md` (a few).
 
 ## Layout
 
@@ -41,7 +41,7 @@ RimWorldModToolbox/team/
     base/                                     Producer: copy of the mod at intake (+ ModsConfig.xml copy)
     <role>-<i>/                               each child's own scratch: replies, forge/ workspace, proof/, screenshots, logs
 
-the author's global skills repo/skills/desktop/rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
+the author's global skills repo/the skills repo's machine-only folder rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
 ```
 
 **One write rule for everyone:** a child writes only (a) its own `runs/…/<role>-<i>/` folder and (b) the mod globs its brief assigns. The Producer writes everything else in `runs/`. Inside `Mods`, nobody writes outside the mod folder named in the brief.
@@ -253,7 +253,7 @@ All 27 round-1 ids resolved in v2 (blockers: stage/rw_build ban, explicit worksp
   - The `Mods` root can't hold harness folders.
   - Folders *inside* a mod are ignored by RimWorld's mod scan.
 - **Tested from inside a mod folder:** Claude `-p`, Muse `exec`, agy `-p` all called the 3 tools. Codex and OpenCode list all 3. Muse lists both skills as project skills in MoreBiomes and none outside. Kit files don't show in `git status`.
-- **`rimworld-forge` left the author's global skills repo** (commit `12d8d88`, pushed). Sync removed it from all global skill folders. Role files point at the toolbox's installed copy.
+- **`rimworld-forge` left the author's global skills repo** (committed and pushed). Sync removed it from all global skill folders. Role files point at the toolbox's installed copy.
 - **WORKFLOW:**
   - Runs from any kit folder.
   - A mod folder with no `About.xml` is a new mod; the template is copied into it after consent.

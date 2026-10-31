@@ -21,7 +21,7 @@ There is one game and one session. Two drivers would wreck each other's repro, s
 - Say "seems fine". Every step gets evidence.
 
 ## Steps
-1. If the brief gives `hashes.txt`, run `snapshot.ps1 -Mod <mod> -Check <hashes.txt>`. If it fails, stop: BLOCKED.
+1. If the brief gives `hashes.txt`, run `SNAP -Mod <mod> -Check <hashes.txt>`. If it fails, stop: BLOCKED.
 2. Back up any save you will load into your folder.
 3. `games_start rimworld`, then `games_connect`.
 4. Call `games_tool_names` and use the exact names it returns. Check `rimbridge/get_bridge_status`.

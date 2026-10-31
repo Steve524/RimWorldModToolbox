@@ -37,7 +37,7 @@ It puts the skills (`rimworld-team`, `rimworld-forge`) and the MCP server config
 | Muse Code | yes |
 | Cursor | config written, untested |
 
-Nothing goes into your global harness config. The kit files are added to the mod's local git exclude, so they're never committed. See [docs/harness-setup.md](docs/harness-setup.md).
+Skills and MCP config stay in the mod folder. The only global change is a trust entry for each mod folder in Codex, Muse and the Antigravity CLI (they ignore project config otherwise; skip with `--no-trust`). The kit files are added to the mod's local git exclude, so they're never committed. See [docs/harness-setup.md](docs/harness-setup.md).
 
 ## How the team works
 
@@ -61,7 +61,7 @@ Pick models per role in [`team/roster.yaml`](team/roster.yaml). It defaults to y
 - Windows, Steam RimWorld 1.6. RimWorld 1.7 (the Waylith engine, on Steam's `unstable` branch) should work through `rw_doctor`, but RimBridgeServer needs a 1.7 build before in-game QA works there.
 - Python 3.11+, Git, .NET 10 runtime, and .NET SDK for C# mods.
 - Multiplayer is checked statically. Runtime MP tests need extra setup ([docs/rimworld-findings.md](docs/rimworld-findings.md)).
-- Publishing: a Workshop upload ships the whole folder, so publish from a clean copy (`team\snapshot.ps1 -Mod <mod> -Copy <folder>`).
+- Publishing: a Workshop upload ships the whole folder, so publish from a clean copy (`powershell -NoProfile -ExecutionPolicy Bypass -File team\snapshot.ps1 -Mod <mod> -Copy <folder>`).
 
 ## License
 
