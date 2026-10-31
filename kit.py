@@ -354,12 +354,13 @@ def main() -> None:
     # MODS\.mcp.json (a plain file, safe in Mods) serves Claude and Muse when Mods itself is the project.
     mods_mcp, text = MODS / ".mcp.json", files[".mcp.json"]
     if not mods_mcp.is_file() or mods_mcp.read_text(encoding="utf-8").replace("\r\n", "\n") != text:
-        if mods_mcp.is_file():
+        had = mods_mcp.is_file()
+        if had:
             b = BACKUPS / f"Mods-{STAMP}" / ".mcp.json"
             b.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(mods_mcp, b)
         mods_mcp.write_text(text, encoding="utf-8", newline="\n")
-        print("Mods\\.mcp.json refreshed (old copy in backups\\kit)")
+        print("Mods\\.mcp.json " + ("refreshed (old copy in backups\\kit)" if had else "written"))
 
 
 if __name__ == "__main__":
