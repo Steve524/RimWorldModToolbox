@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "rimworldforge": { "type": "local", "command": ["{{TOOLBOX}}/mcp/RimWorldForge/.venv/Scripts/python.exe", "{{TOOLBOX}}/mcp/RimWorldForge/mcp_server/server.py"] },
+      "decompiler": { "type": "local", "command": ["{{TOOLBOX}}/mcp/DecompilerServer/DecompilerServer.exe"] },
+      "gabs": { "type": "local", "command": ["{{TOOLBOX}}/mcp/GABS/gabs.exe", "server", "stdio"] }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Installed third-party tools and local state (see docs/install.md)
+/mcp/
+/sources/
+/backups/
+/local.json
+__pycache__/
+
+# Run folders (one per task)
+/team/runs/*
+!/team/runs/.gitkeep
+
+# The kit installed into this folder by kit.py (machine-specific, generated)
+/.claude/
+/.agents/
+/.codex/
+/.cursor/
+/.muse/
+/.mcp.json
+/opencode.json

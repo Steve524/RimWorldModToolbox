@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "rimworldforge": {
+      "command": "{{TOOLBOX}}/mcp/RimWorldForge/.venv/Scripts/python.exe",
+      "args": ["{{TOOLBOX}}/mcp/RimWorldForge/mcp_server/server.py"],
+      "env": { "USERPROFILE": "{{HOME}}", "HOME": "{{HOME}}", "APPDATA": "{{APPDATA}}", "LOCALAPPDATA": "{{LOCALAPPDATA}}" }
+    },
+    "decompiler": {
+      "command": "{{TOOLBOX}}/mcp/DecompilerServer/DecompilerServer.exe",
+      "env": { "USERPROFILE": "{{HOME}}", "HOME": "{{HOME}}", "APPDATA": "{{APPDATA}}", "LOCALAPPDATA": "{{LOCALAPPDATA}}" }
+    },
+    "gabs": {
+      "command": "{{TOOLBOX}}/mcp/GABS/gabs.exe",
+      "args": ["server", "stdio"],
+      "env": { "USERPROFILE": "{{HOME}}", "HOME": "{{HOME}}", "APPDATA": "{{APPDATA}}", "LOCALAPPDATA": "{{LOCALAPPDATA}}" }
+    }
+  }
+}

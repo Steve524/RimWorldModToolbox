@@ -1,0 +1,6 @@
+{
+  "enabledMcpjsonServers": ["rimworldforge", "decompiler", "gabs"],
+  "permissions": {
+    "additionalDirectories": ["{{MODS}}", "{{TOOLBOX}}", "{{PLAYER}}"]
+  }
+}

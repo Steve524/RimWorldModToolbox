@@ -1,0 +1,29 @@
+# Who runs each role. Change any value on a role's line.
+# You never pick roles here: WORKFLOW.md pulls specialists in automatically when the task triggers them.
+#
+# provider:  providerInstanceId from orchestrator_capabilities (e.g. claudeAgent, codex, muse, opencode, antigravity)
+# model:     model id from orchestrator_capabilities
+# effort:    a value that provider offers (the workflow maps it to the provider's own option name)
+# instances: how many copies run. builder = lanes (max one C# lane). reviewer = independent votes. qa is always 1.
+# inherit:   use the main thread's value.
+#
+# Example: designer: { provider: muse, model: muse-wonder-full-1.0, effort: high, instances: 1 }
+
+version: 1
+review_rounds: 3   # base budget; tasks touching saves, MP or data loss get +2
+
+roles:
+  # Core: always on in team mode. (Producer is the main thread, so it has no line.)
+  librarian:     { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  builder:       { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  reviewer:      { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  qa:            { provider: inherit, model: inherit, effort: inherit, instances: 1 }   # locked to 1
+
+  # Specialists: pulled in automatically when a trigger in WORKFLOW.md fires.
+  designer:      { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  writer:        { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  ui-ux:         { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  art-audio:     { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  compat-save:   { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  framework-api: { provider: inherit, model: inherit, effort: inherit, instances: 1 }
+  mp-sync:       { provider: inherit, model: inherit, effort: inherit, instances: 1 }

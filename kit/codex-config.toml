@@ -1,0 +1,17 @@
+# Project-only MCP servers for Codex. Loaded only when this folder is a trusted project (kit.py adds the trust entry).
+# No env block needed here: Codex passes the full environment to MCP servers.
+[mcp_servers.rimworldforge]
+command = "{{TOOLBOX}}/mcp/RimWorldForge/.venv/Scripts/python.exe"
+args = ["{{TOOLBOX}}/mcp/RimWorldForge/mcp_server/server.py"]
+
+[mcp_servers.decompiler]
+command = "{{TOOLBOX}}/mcp/DecompilerServer/DecompilerServer.exe"
+
+[mcp_servers.gabs]
+command = "{{TOOLBOX}}/mcp/GABS/gabs.exe"
+args = ["server", "stdio"]
+
+# Builder and QA write outside the project: mods in Mods, run files in the toolbox,
+# and player data (QA only, with the user's consent).
+[sandbox_workspace_write]
+writable_roots = ["{{MODS}}", "{{TOOLBOX}}", "{{PLAYER}}"]
