@@ -16,7 +16,7 @@ Out of scope: picking models (roster ships as `inherit`), fixing RimWorldForge's
 
 1. Installed game is **1.6.4871** (`Version.txt`, `rw_doctor`). Target is 1.7 per the author (Steam `unstable`); installed is 1.6. Role files never hardcode a version.
 2. RimWorld scans only **top-level** folders of `Mods`. Workshop upload ships the **whole mod folder**.
-3. the skills repo's sync script **copies** skill folders. `the skills repo's machine-only folder ` installs only on this machine.
+3. the skills repo's sync script **copies** skill folders. A machine-only skills folder installs only on this machine.
 4. Forge: `rw_index` writes one shared JSON non-atomically. `rw_validate` writes `reports/validation.json`, scans only flat Forge workspaces. `rw_project_new` with no `workspace` writes into the current folder. CLI `stage` `rmtree`s `Mods/<name>`. `rw_build` writes only inside its workspace. No Def index exists yet.
 5. Decompiler: one process per harness/delegate; contexts not shared.
 6. GABS: one game, one profile, ownership lease. Some bridge tools persist `ModsConfig.xml` / settings. A running game locks mod DLLs.
@@ -41,7 +41,7 @@ RimWorldModToolbox/team/
     base/                                     Producer: copy of the mod at intake (+ ModsConfig.xml copy)
     <role>-<i>/                               each child's own scratch: replies, forge/ workspace, proof/, screenshots, logs
 
-the author's global skills repo/the skills repo's machine-only folder rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
+(author's skills repo) rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
 ```
 
 **One write rule for everyone:** a child writes only (a) its own `runs/…/<role>-<i>/` folder and (b) the mod globs its brief assigns. The Producer writes everything else in `runs/`. Inside `Mods`, nobody writes outside the mod folder named in the brief.

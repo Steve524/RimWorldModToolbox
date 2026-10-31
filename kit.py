@@ -307,8 +307,13 @@ def doctor() -> int:
     line(bool(rt and "Microsoft.NETCore.App 10." in rt.stdout), ".NET 10 runtime (for DecompilerServer)", "Install the .NET 10 runtime.")
     line((TOOLBOX / "mcp" / "GABS" / "gabs.exe").is_file(), "GABS in mcp\\GABS", "See docs\\install.md, GABS.")
     gcfg = Path.home() / ".gabs" / "config.json"
-    game = json.loads(gcfg.read_text(encoding="utf-8")).get("games", {}).get("rimworld") if gcfg.is_file() else None
-    line(bool(game), "GABS has a 'rimworld' game in ~/.gabs/config.json", "See docs\\install.md, GABS.")
+    try:
+        game = json.loads(gcfg.read_text(encoding="utf-8")).get("games", {}).get("rimworld") if gcfg.is_file() else None
+        bad_json = False
+    except ValueError:
+        game, bad_json = None, True
+    line(bool(game), "GABS has a 'rimworld' game in ~/.gabs/config.json",
+         "~/.gabs/config.json is not valid JSON (write paths with \\\\)." if bad_json else "See docs\\install.md, GABS.")
     if game and game.get("launchMode") == "DirectPath":
         line(Path(game.get("target", "")).is_file(), f"GABS launch target exists: {game.get('target', '-')}",
              "Fix 'target' in ~/.gabs/config.json, or run: gabs games doctor rimworld")

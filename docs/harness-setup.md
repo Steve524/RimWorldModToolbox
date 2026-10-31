@@ -1,6 +1,6 @@
 # Harness setup: project-only skills and MCP servers
 
-Everything here is wired **per project folder**, never in a global harness config. `kit.py` writes it into each mod folder. These are the findings that shaped it, all tested on Windows in October 2026.
+Everything here is wired **per project folder**, never in a global harness config, apart from the per-folder trust entries below. `kit.py` writes it into each mod folder. These are the findings that shaped it, all tested on Windows in October 2026.
 
 ## Where each harness looks
 
