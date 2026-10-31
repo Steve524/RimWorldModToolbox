@@ -13,7 +13,7 @@ Everything here is wired **per project folder**, never in a global harness confi
 | Antigravity | `.agents\mcp_config.json` (`mcpServers`, same shape as Claude) | `.agents\skills\` | Yes: `trustedWorkspaces` in `~/.gemini/antigravity-cli/settings.json` |
 | Muse Code | `.mcp.json` | `.agents\skills\`, `.claude\skills\`, `.codex\skills\` | Yes: `~/.config/muse/trust.json` |
 
-`kit.py` writes all of these, and the trust entries too (skip with `--no-trust`). It backs up each global file before its first edit.
+`kit.py` writes all of these, and the trust entries too (skip with `--no-trust`). It backs up each global file before its first edit. Each skill goes into both `.claude\skills` and `.agents\skills`; Muse and OpenCode read both and report the second copy as shadowed. That's harmless.
 
 ## Gotchas found while testing
 

@@ -13,7 +13,7 @@ version: 1
 review_rounds: 3   # base budget; tasks touching saves, MP or data loss get +2
 
 roles:
-  # Core: always on in team mode. (Producer is the main thread, so it has no line.)
+  # Core: always on. (Producer is the main thread, so it has no line.)
   librarian:     { provider: inherit, model: inherit, effort: inherit, instances: 1 }
   builder:       { provider: inherit, model: inherit, effort: inherit, instances: 1 }
   reviewer:      { provider: inherit, model: inherit, effort: inherit, instances: 1 }

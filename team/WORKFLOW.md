@@ -50,7 +50,7 @@ The skill that started you lists the real paths for this machine. Use them where
    - Then run `SNAP -Mod <mod> -Hashes RUN\hashes.txt` and `SNAP -Mod <mod> -Copy RUN\candidate-r<n>`.
    - Done when validation is clean (or `NO XML`) and both are written.
 7. **Review loop.**
-   - Each round: a fresh `delegate_task` per reviewer instance. Never the builder's thread. Triggered MP sync, Compat & Save and Framework/API also re-check the diff each round, replying in the Reviewer's findings format.
+   - Each round: a fresh delegate per reviewer instance (T3 Code: a new `delegate_task`). Never the builder's thread. Triggered MP sync, Compat & Save and Framework/API also re-check the diff each round, replying in the Reviewer's findings format.
    - Reviewers diff `git diff --no-index RUN\base RUN\candidate-r<n>`. Exit code 1 just means files differ.
    - Budget: `review_rounds` from the roster, +2 when the task touches saves, Multiplayer, or data loss. Round 1 is full. Later rounds check open ids and changed code only. Stop when a round returns only nits.
    - Check every finding yourself:

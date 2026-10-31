@@ -193,9 +193,12 @@ def install(target: Path, files: dict[str, str], do_trust: bool) -> None:
         man_path.parent.mkdir(parents=True, exist_ok=True)
         man_path.write_text(manifest, encoding="utf-8")
     excluded = git_exclude(target)
-    trusted = trust(target) if do_trust and target != TOOLBOX else []
+    trusted, untrusted = trust(target) if do_trust and target != TOOLBOX else ([], [])
     print(f"{target.name}: {wrote} file(s) written, {backed} moved to backups"
           f"{', git exclude updated' if excluded else ''}{', trusted in ' + ', '.join(trusted) if trusted else ''}")
+    if untrusted:
+        print(f"  NOT trusted in {', '.join(untrusted)} (no config file yet). If you use it: open it once, "
+              f"then run kit.py again, or accept its trust prompt when you open this folder.")
 
 
 def git_exclude(target: Path) -> bool:
@@ -227,21 +230,31 @@ def backup_global(p: Path) -> None:
         shutil.copy2(p, b)
 
 
-def trust(target: Path) -> list[str]:
-    done = []
+def toml_key(s: str) -> str:
+    """A TOML basic-string key: safe for any Windows path, including apostrophes."""
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def trust(target: Path) -> tuple[list[str], list[str]]:
+    """Returns (trusted now, harnesses whose config file doesn't exist yet)."""
+    done, missing = [], []
     path = str(target)
     codex = Path.home() / ".codex" / "config.toml"
-    if codex.is_file():
+    if not codex.is_file():
+        missing.append("Codex")
+    else:
         s = codex.read_text(encoding="utf-8")
         keys = {k.lower() for k in tomllib.loads(s).get("projects", {})}
         if path.lower() not in keys:
             backup_global(codex)
-            s = s.rstrip("\n") + f"\n\n[projects.'{path.lower()}']\ntrust_level = \"trusted\"\n"
+            s = s.rstrip("\n") + f"\n\n[projects.{toml_key(path.lower())}]\ntrust_level = \"trusted\"\n"
             tomllib.loads(s)
             codex.write_text(s, encoding="utf-8")
             done.append("Codex")
     muse = Path.home() / ".config" / "muse" / "trust.json"
-    if muse.is_file():
+    if not muse.is_file():
+        missing.append("Muse")
+    else:
         d = json.loads(muse.read_text(encoding="utf-8"))
         key = "\\\\?\\" + path
         if key.lower() not in {k.lower() for k in d.get("projects", {})}:
@@ -250,7 +263,9 @@ def trust(target: Path) -> list[str]:
             muse.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8")
             done.append("Muse")
     agy = Path.home() / ".gemini" / "antigravity-cli" / "settings.json"
-    if agy.is_file():
+    if not agy.is_file():
+        missing.append("Antigravity CLI")
+    else:
         d = json.loads(agy.read_text(encoding="utf-8"))
         ws = d.setdefault("trustedWorkspaces", [])
         if path.lower() not in {w.lower() for w in ws}:
@@ -258,7 +273,7 @@ def trust(target: Path) -> list[str]:
             ws.append(path)
             agy.write_text(json.dumps(d, indent=2) + "\n", encoding="utf-8")
             done.append("Antigravity")
-    return done
+    return done, missing
 
 
 # ---------- doctor ----------

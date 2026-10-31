@@ -17,18 +17,19 @@ It works for new mods and existing ones. It is built on three open-source MCP se
 
 ## Quick start
 
-1. Install the prerequisites and the three MCP servers: [docs/install.md](docs/install.md).
-2. Check everything: `python kit.py --doctor`
-3. Add the kit to your mods: `python kit.py MyMod`, or `python kit.py --new MyNewMod` for a new one.
-4. Open `<RimWorld>\Mods\MyMod` as the project in your harness, and run `/rimworld-team <task>`.
+1. Clone it somewhere outside RimWorld's `Mods` folder: `git clone https://github.com/Steve524/RimWorldModToolbox` and `cd RimWorldModToolbox`.
+2. Install the prerequisites and the three MCP servers: [docs/install.md](docs/install.md).
+3. Check everything: `python kit.py --doctor`
+4. Add the kit to your mods: `python kit.py MyMod`, or `python kit.py --new MyNewMod` for a new one.
+5. Open `<RimWorld>\Mods\MyMod` as the project in your harness, and run `/rimworld-team <task>`.
 
 ## What `kit.py` does
 
 It puts the skills (`rimworld-team`, `rimworld-forge`) and the MCP server config into each mod folder, in the format every harness reads:
 
-| Harness | Tested |
+| Harness | Kit tested (skills + MCP servers load) |
 |---|---|
-| T3 Code (recommended: per-role providers via `delegate_task`) | yes |
+| [T3 Code](https://github.com/pingdotgg/t3code) (recommended: it can run each role on a different provider) | yes, plus full team runs |
 | Claude Code | yes |
 | Codex | yes |
 | OpenCode | yes |

@@ -4,7 +4,7 @@ How this toolbox got its shape: research, then council review rounds (three mode
 
 # Plan: `rimworld-team` — repeatable agentic roles workflow for RimWorld mods
 
-Status: design record, not instructions. **Current packaging is in "Round 6 change set" at the bottom** (project-only in the toolbox). Earlier sections mention a the author's dotfiles repo stub and global MCP gaps; those are superseded. v3 went to council round 3. The round-3 fixes went straight into the built files (see "Round 3" at the bottom). If this file and WORKFLOW.md or a role file disagree, the WORKFLOW.md or role file wins.
+Status: design record, not instructions. **Current packaging is in "Round 6 change set" at the bottom** (project-only in the toolbox). Earlier sections mention a the author's global skills repo stub and global MCP gaps; those are superseded. v3 went to council round 3. The round-3 fixes went straight into the built files (see "Round 3" at the bottom). If this file and WORKFLOW.md or a role file disagree, the WORKFLOW.md or role file wins.
 
 ## Goal
 
@@ -16,7 +16,7 @@ Out of scope: picking models (roster ships as `inherit`), fixing RimWorldForge's
 
 1. Installed game is **1.6.4871** (`Version.txt`, `rw_doctor`). Target is 1.7 per the author (Steam `unstable`); installed is 1.6. Role files never hardcode a version.
 2. RimWorld scans only **top-level** folders of `Mods`. Workshop upload ships the **whole mod folder**.
-3. `squad.py` **copies** skill folders. `skills/desktop/` installs only on this machine.
+3. the skills repo's sync script **copies** skill folders. `skills/desktop/` installs only on this machine.
 4. Forge: `rw_index` writes one shared JSON non-atomically. `rw_validate` writes `reports/validation.json`, scans only flat Forge workspaces. `rw_project_new` with no `workspace` writes into the current folder. CLI `stage` `rmtree`s `Mods/<name>`. `rw_build` writes only inside its workspace. No Def index exists yet.
 5. Decompiler: one process per harness/delegate; contexts not shared.
 6. GABS: one game, one profile, ownership lease. Some bridge tools persist `ModsConfig.xml` / settings. A running game locks mod DLLs.
@@ -41,7 +41,7 @@ RimWorldModToolbox/team/
     base/                                     Producer: copy of the mod at intake (+ ModsConfig.xml copy)
     <role>-<i>/                               each child's own scratch: replies, forge/ workspace, proof/, screenshots, logs
 
-the author's dotfiles repo/skills/desktop/rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
+the author's global skills repo/skills/desktop/rimworld-team/SKILL.md   stub, user-invoked → WORKFLOW.md
 ```
 
 **One write rule for everyone:** a child writes only (a) its own `runs/…/<role>-<i>/` folder and (b) the mod globs its brief assigns. The Producer writes everything else in `runs/`. Inside `Mods`, nobody writes outside the mod folder named in the brief.
@@ -105,7 +105,7 @@ Producer states the mode in one line; `/rimworld-team solo|team <task>` override
 | `diagnosing-bugs` | QA: Phases 1–4, 6 | Builder: Phase 5 + tagged instrumentation | Bug fix, or QA gate red with unknown cause |
 | `blast-radius` | Reviewer | Builder answers risks; QA runs game-side proof steps | Harmony (esp. transpilers), Def overrides, save format, MP sync, core-mod edits, framework API change, any bug fix |
 
-Referenced by name + absolute the author's dotfiles repo source path; `blast-radius` by path only.
+Referenced by name + absolute the author's global skills repo source path; `blast-radius` by path only.
 
 ## MCP access (each role file carries its own list)
 
@@ -231,7 +231,7 @@ All 27 round-1 ids resolved in v2 (blockers: stage/rw_build ban, explicit worksp
 
 ## Round 6 change set (the author's feedback, 2026-10-31)
 
-- **Project-only, not global.** The the author's dotfiles repo stub was moved out (sync uninstalled it from all global skill folders). The toolbox is now the T3 project `RimWorldModToolbox`, with project-level skills (`.claude/skills`, `.agents/skills`) and MCP configs for all 6 harnesses (`.mcp.json`, `.codex/config.toml`, `.cursor/mcp.json`, `opencode.json` v2 `mcp.servers`, `.agents/mcp_config.json`). `Verse.ModLister.RebuildModList` loads every folder in `Mods` (dot-folders too), so none of this can live in `Mods`.
+- **Project-only, not global.** The author's dotfiles repo stub was moved out (sync uninstalled it from all global skill folders). The toolbox is now the T3 project `RimWorldModToolbox`, with project-level skills (`.claude/skills`, `.agents/skills`) and MCP configs for all 6 harnesses (`.mcp.json`, `.codex/config.toml`, `.cursor/mcp.json`, `opencode.json` v2 `mcp.servers`, `.agents/mcp_config.json`). `Verse.ModLister.RebuildModList` loads every folder in `Mods` (dot-folders too), so none of this can live in `Mods`.
 - **Tested per harness from the toolbox:**
   - Claude `-p`, Muse `exec` and Antigravity `-p`: all 3 tools answered.
   - Codex `mcp list`: all 3 enabled. OpenCode `mcp list`: all 3 connected.
@@ -253,7 +253,7 @@ All 27 round-1 ids resolved in v2 (blockers: stage/rw_build ban, explicit worksp
   - The `Mods` root can't hold harness folders.
   - Folders *inside* a mod are ignored by RimWorld's mod scan.
 - **Tested from inside a mod folder:** Claude `-p`, Muse `exec`, agy `-p` all called the 3 tools. Codex and OpenCode list all 3. Muse lists both skills as project skills in MoreBiomes and none outside. Kit files don't show in `git status`.
-- **`rimworld-forge` left the author's dotfiles repo** (commit `12d8d88`, pushed). Sync removed it from all global skill folders. Role files point at the toolbox's installed copy.
+- **`rimworld-forge` left the author's global skills repo** (commit `12d8d88`, pushed). Sync removed it from all global skill folders. Role files point at the toolbox's installed copy.
 - **WORKFLOW:**
   - Runs from any kit folder.
   - A mod folder with no `About.xml` is a new mod; the template is copied into it after consent.

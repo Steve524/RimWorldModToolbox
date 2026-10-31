@@ -1,6 +1,6 @@
 # Delegate brief
 
-Paste this, filled in, as the `task` of every `delegate_task`. The child sees nothing else, so inline the role file body. Don't just pass its path. Replace every `<TOOLBOX>`, `<MODS>`, `<GAME>`, `<PLAYER>`, `<RUN>`, and the same bare names inside the role file, with the real paths.
+Paste this, filled in, as the task of every delegate (T3 Code: `delegate_task`; other harnesses: their subagent tool). The child sees nothing else, so inline the role file body. Don't just pass its path. Replace every `<TOOLBOX>`, `<MODS>`, `<GAME>`, `<PLAYER>`, `<RUN>`, and the same bare names inside the role file, with the real paths.
 
 ```
 You are the <ROLE> (<i> of <N>) on a RimWorld mod team. Do only this role.

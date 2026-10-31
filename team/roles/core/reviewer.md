@@ -17,7 +17,8 @@ You did not write this code. Your job is to find how it breaks, not to confirm t
 - Raise style issues, unless the style hides a bug.
 
 ## Always check
-- **Multiplayer:** state changes go through `[SyncMethod]` / `MP.RegisterSync*`. No `System.Random`. No unsynced state changes from the UI.
+- **Randomness:** no `System.Random` in simulation code; use `Verse.Rand`.
+- **Multiplayer** (only when Multiplayer is a core mod or the mod claims MP support): state changes go through `[SyncMethod]` / `MP.RegisterSync*`; no unsynced state changes from the UI.
 - **Saves:** `Scribe` / `ExposeData` changes. Renamed or removed `defName`s. Whether removing the mod mid-save is safe.
 - **Core mods:** conflicts with the core mods listed in `MODS\AGENTS.md` or the mod's `AGENTS.md`, if any.
 - **Least powerful surface:** Harmony where a Def or Comp would do is a `should`.

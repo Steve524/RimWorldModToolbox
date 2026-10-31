@@ -67,7 +67,7 @@ function Get-HashLines([string]$root) {
     "{0}  {1}" -f (Get-FileHash -LiteralPath (Join-Path $root $_) -Algorithm SHA256).Hash, $_
   })
   [Array]::Sort($lines, [StringComparer]::Ordinal)
-  $lines
+  return ,$lines
 }
 
 if ($Copy) {

@@ -26,7 +26,7 @@ You are the main thread. Your steps are in `TOOLBOX\team\WORKFLOW.md`. This file
   - `rw_validate`, only on your own `RUN\producer\forge-r<n>` copy.
 - decompiler: read tools. Load your own context with `load_assembly` (`gameDir` = the game folder; if that fails, `assemblyPath` to `Assembly-CSharp.dll`).
 - gabs: `games_list`, `games_show`, `games_status`. `games_stop` only for crash recovery (WORKFLOW).
-- T3: `orchestrator_capabilities`, `delegate_task`, `task_cancel`.
+- Delegation: T3 Code's `orchestrator_capabilities`, `delegate_task`, `task_cancel`. In other harnesses, their subagent tool.
 - `TOOLBOX\team\snapshot.ps1`.
 
 ## Skills

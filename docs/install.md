@@ -11,7 +11,7 @@ Windows only for now: the snapshot script is PowerShell, and the paths assume a 
 | Git | Clones, diffs, git excludes | git-scm.com |
 | .NET 10 runtime | Runs DecompilerServer | dotnet.microsoft.com |
 | .NET SDK | Only to build C# mods (`dotnet build`) | dotnet.microsoft.com |
-| At least one AI harness | Runs the team | T3 Code (recommended: it can run each role on a different provider), Claude Code, Codex, OpenCode, Antigravity, Cursor, Muse Code |
+| At least one AI harness | Runs the team | [T3 Code](https://github.com/pingdotgg/t3code) (recommended: it can run each role on a different provider), Claude Code, Codex, OpenCode, Antigravity, Cursor, Muse Code |
 
 ## Steps
 
@@ -20,7 +20,7 @@ Windows only for now: the snapshot script is PowerShell, and the paths assume a 
 Put it anywhere outside the RimWorld `Mods` folder. RimWorld loads every folder in `Mods` as a mod.
 
 ```
-git clone https://github.com/<you>/RimWorldModToolbox
+git clone https://github.com/Steve524/RimWorldModToolbox
 cd RimWorldModToolbox
 ```
 
@@ -63,7 +63,7 @@ Then tell GABS about RimWorld. Either run `mcp\GABS\gabs.exe games add rimworld`
 
 ### 5. RimBridgeServer (the in-game half of GABS)
 
-Download the latest release from https://github.com/pardeike/RimBridgeServer/releases and extract it to `<RimWorld>\Mods\RimBridgeServer\`. Enable it in the game's mod list, together with Harmony (`Mods\Harmony` or the Workshop).
+Download the latest release from https://github.com/pardeike/RimBridgeServer/releases and extract it to `<RimWorld>\Mods\RimBridgeServer\`. Enable it in the game's mod list, together with **Harmony**: subscribe on the Steam Workshop, or extract the latest release from https://github.com/pardeike/HarmonyRimWorld/releases into `Mods\Harmony`. GABS can't talk to the game without both.
 
 ### 6. Check
 
@@ -80,7 +80,7 @@ python kit.py MyMod OtherMod     existing mods (folder names in Mods)
 python kit.py --new MyNewMod     a brand-new, empty mod folder
 ```
 
-That writes the skills and MCP config for every harness into each mod folder (see [harness-setup.md](harness-setup.md)), trusts the folder in Codex, Muse and the Antigravity CLI (`--no-trust` to skip), and adds the kit files to the mod's git exclude.
+That writes the skills and MCP config for every harness into each mod folder (see [harness-setup.md](harness-setup.md)), trusts the folder in Codex, Muse and the Antigravity CLI if they're installed (`--no-trust` to skip; it tells you when a harness has no config yet), and adds the kit files to the mod's git exclude.
 
 ### 8. Optional
 
