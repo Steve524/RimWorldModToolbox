@@ -44,7 +44,7 @@ The skill that started you lists the real paths for this machine. Use them where
    - New mod, after yes: copy the contents of `TOOLBOX\templates\rimworld-mod` into the mod folder, skipping files that already exist (the kit's). From TOOLBOX: copy it to `MODS\<spec name>`, run `python TOOLBOX\kit.py <spec name>`, then baseline it as in step 1.
 6. **Build.**
    - The game must be closed (`games_status`). If it is running, ask the user to close it.
-   - Lanes: disjoint globs. At most one C# lane, owning `Source/**`, `*.csproj`, `**/Assemblies/**`. Lane 1 also owns `About/**`, `LoadFolders.xml`, and the mod's `AGENTS.md`. XML lanes run in parallel. A specialist given a lane is a lane owner, under the Builder rules.
+   - Lanes: disjoint globs. At most one C# lane, owning `Source/**`, `*.csproj`, `**/Assemblies/**`. Lane 1 also owns `About/**`, `LoadFolders.xml`, and the mod's `AGENTS.md`. XML lanes run in parallel. A specialist given a lane is a lane owner, under the Builder rules. Every `Wiring` row's Def file must fall in some lane.
    - Bug fix: the lane that owns each tagged file removes every `[DBG-<slug>]` line.
    - When every lane replies DONE: run `SNAP -Mod <mod> -Forge RUN\producer\forge-r<n>-<try> -Version <v>`, then `rw_validate` on it with the index. Use a new `<try>` number each time. Errors go back to the lane that owns the file.
    - Then run `SNAP -Mod <mod> -Hashes RUN\hashes.txt` and `SNAP -Mod <mod> -Copy RUN\candidate-r<n>`.

@@ -24,7 +24,7 @@ The user judges style. You make the textures correct and complete.
 ## Steps
 1. Find vanilla peers (`rw_def_inspect`) for size, `graphicClass` and draw size.
 2. Write the manifest. Then make or collect the textures. Pawn and apparel art often needs a human repaint, so say so.
-3. Write WIRING rows for `graphicData`. After the owning lane applies them, validate with `SNAP -Forge` + `rw_validate`. Missing textures show up as warnings.
+3. Write WIRING rows for `graphicData`. The Producer's step-6 validation checks them once a lane applies them (missing textures show up as warnings).
 4. Done when every manifest row is present and has a WIRING row, with QA screenshot steps for every facing.
 
 ## Tools
