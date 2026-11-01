@@ -7,7 +7,7 @@ A repeatable **AI agent team for RimWorld modding**. Open any mod folder in your
 - **Builders** working in separate lanes
 - independent **Reviewers**
 - one **QA** that drives the live game
-- **specialists** (design, writing, UI, art & audio, compatibility & saves, framework API, Multiplayer sync), pulled in automatically when the task needs them
+- **specialists** (systems & balance, content & quests, writing, UI, art, sound, compatibility & saves, framework API, Multiplayer sync), pulled in automatically when the task needs them
 
 It works for new mods and existing ones. It is built on three open-source MCP servers: [RimWorldForge](https://github.com/SenjuWoo/RimWorldForge) (Defs and validation), [DecompilerServer](https://github.com/pardeike/DecompilerServer) (the game's C#), and [GABS](https://github.com/pardeike/GABS) + [RimBridgeServer](https://github.com/pardeike/RimBridgeServer) (the live game).
 

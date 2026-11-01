@@ -267,3 +267,9 @@ All 27 round-1 ids resolved in v2 (blockers: stage/rw_build ban, explicit worksp
 - Personal core mods are out of the role files. Core mods now come from the user's optional `Mods\AGENTS.md` (example in `templates\`). The MP sync specialist triggers only when Multiplayer is a core mod or the mod claims MP support.
 - The `diagnosing-bugs` and `blast-radius` skills had no license, so they are optional-by-name, and the core of each is written into the role files.
 - `docs\` written; this history moved here from `team\DESIGN.md`.
+
+## Round 11: specialist split (author's request)
+
+- Designer split in two: **Systems & Balance** (systems designer + balance analyst) and **Content & Quest** (content designer + quest/event designer). When both run, Content & Quest writes the Def sheet first and Systems & Balance balance-checks it.
+- **Sound** split out of Art & Audio into its own specialist; Art keeps textures and graphics wiring. Separate human sign-offs: style (Art), loudness (Sound).
+- 9 specialists now. Roster, triggers, category hints and docs updated.

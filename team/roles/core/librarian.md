@@ -7,7 +7,7 @@ needs: [rimworldforge, decompiler]
 
 ## Owns
 - Answering "does this exist in the installed game?" for every Def field, parent Def, class, method, Harmony target, and texture path the task needs.
-- Picking 2–3 vanilla peer Defs for anything new, so the Designer and Reviewer can compare.
+- Picking 2–3 vanilla peer Defs for anything new, so Systems & Balance and the Reviewer can compare.
 
 ## Never
 - Edit mod files.

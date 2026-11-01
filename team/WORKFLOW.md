@@ -32,7 +32,7 @@ The skill that started you lists the real paths for this machine. Use them where
    - Done when every role resolves. If one can't, stop and tell the user exactly which. Never substitute.
    - Record resolved ids in the ledger.
 4. **Recon.**
-   - Librarian(s) in parallel, split by question area, plus **every triggered specialist**, drafting its part of the spec. Done when every claim in `RUN\refs.md` has tool evidence.
+   - Librarian(s) in parallel, split by question area, plus **every triggered specialist**, drafting its part of the spec. One order to keep: when both run, Content & Quest writes the Def sheet first, then Systems & Balance balance-checks it. Done when every claim in `RUN\refs.md` has tool evidence.
    - Bug fix: first ask the user the repro consent line: "QA will run the game with mod list X and load save Y (backed up first). A Builder may add temporary `[DBG]` logs. Everything is restored after. OK?" Then loop until the bug is red:
      1. QA builds the red loop (see `qa.md`) and always ends with the game stopped.
      2. QA replies `NEED LOGS`: delegate a Builder to add only `[DBG-<slug>]` logs.
@@ -66,7 +66,7 @@ The skill that started you lists the real paths for this machine. Use them where
    - QA red: add a ledger item, go back to 6.
    - Done when the test gate is green and `-Check` still passes afterwards.
 9. **Human gates, then done.**
-   - If Art & Audio or UI/UX ran, ask the user to sign off on taste and feel. Give them the screenshot paths.
+   - If Art, Sound or UI/UX ran, ask the user to sign off on style, loudness and feel. Give them the screenshot paths and the sounds to listen to.
    - Report: gate table, highest evidence tier, files changed, follow-ups, resolved models and taskIds.
    - Publish only if the user asks, and from a clean copy (`SNAP -Mod <mod> -Copy <folder>` drops the harness kit).
    - Rollback (only if the user asks): move the mod folder to `TOOLBOX\backups\<Mod>-<date>`, then copy `RUN\base` back. New mod: move it to backups.
@@ -90,19 +90,21 @@ The skill that started you lists the real paths for this machine. Use them where
 | # | Category | Usual triggers |
 |---|---|---|
 | 1 | Quality of life: controls, menus, convenience | UI/UX |
-| 2 | Content expansion: items, animals, factions, events | Designer, Writer, Art & Audio |
-| 3 | Gameplay overhaul: major systems or mechanics | Designer, Compat & Save, MP sync |
-| 4 | Visual or audio: graphics, textures, sounds | Art & Audio |
+| 2 | Content expansion: items, animals, factions, events | Content & Quest, Systems & Balance, Writer, Art |
+| 3 | Gameplay overhaul: major systems or mechanics | Systems & Balance, Compat & Save, MP sync |
+| 4 | Visual or audio: graphics, textures, sounds | Art, Sound |
 | 5 | Utility or framework: supports other mods or development | Framework/API, Compat & Save |
 
 **Specialists come in only by trigger.** Re-check triggers after the spec. Bug fixes add a specialist only if the cause hits its trigger.
 
 | Specialist (`roles\specialists\`) | Trigger in the task or spec |
 |---|---|
-| `designer.md` | New Def of a gameplay type, stat/recipe/raid-point numbers, a new system |
+| `systems-balance.md` | A new or changed system or mechanic; any stat, cost, market-value or raid-point numbers |
+| `content-quest.md` | New gameplay Defs (items, weapons, apparel, buildings, animals, pawn kinds, factions, research); incidents, quests, events |
 | `writer.md` | Player-visible text |
 | `ui-ux.md` | Gizmo, window, tab, settings UI, hotkey, float menu |
-| `art-audio.md` | Texture, `graphicData`, sound, song |
+| `art.md` | Texture, `graphicData`, render tree, icon |
+| `sound.md` | `SoundDef`, `SongDef`, sound files, sound references on verbs, buildings or effecters |
 | `compat-save.md` | PatchOperation, `MayRequire`, LoadFolders, dependency, `defName` rename or removal, `ExposeData`, other-mod conflict, port |
 | `framework-api.md` | Other mods consume this mod |
 | `mp-sync.md` | C# that changes game state, when the RimWorld Multiplayer mod is a core mod or the mod claims Multiplayer support |
@@ -115,7 +117,8 @@ The Reviewer always runs its blast-radius check on bug fixes.
 ```
 # <Mod>: <task>    version <n>
 Goal / Non-goals / Type, categories
-Def sheet: one row per Def (designer)
+Systems: steps + balance table (systems & balance)
+Def sheet: one row per Def (content & quest)
 Lanes: lane | owner | globs
 Test steps for QA: numbered, each with an expected result
 Old save to load: <name | none>   Removal expectation: <what happens | n/a>   Perf budget: <e.g. +0.5 ms/tick | none>

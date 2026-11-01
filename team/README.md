@@ -17,11 +17,11 @@ You never pick roles. The Producer sorts the task and pulls in each specialist w
 | `BRIEF.md` | The text every delegate gets |
 | `roster.yaml` | **Edit this.** One line per role: provider, model, effort, instances |
 | `roles\core\` | Producer, Librarian, Builder, Reviewer, QA. Always on |
-| `roles\specialists\` | Designer, Writer, UI/UX, Art & Audio, Compat & Save, Framework/API, MP sync. Pulled in by trigger |
+| `roles\specialists\` | Systems & Balance, Content & Quest, Writer, UI/UX, Art, Sound, Compat & Save, Framework/API, MP sync. Pulled in by trigger |
 | `snapshot.ps1` | Baseline copy, hashes, change check, flat Forge workspace for `rw_validate` |
 | `runs\` | One folder per task: spec, ledger, baseline, delegate scratch. Kept outside the mod, so nothing leaks to the Workshop |
 
-Your gates: approve the spec, sign off on taste (art/audio) and feel (UI), and decide when to publish.
+Your gates: approve the spec, sign off on style (art), loudness (sound) and feel (UI), and decide when to publish.
 
 More: [../docs/how-it-works.md](../docs/how-it-works.md).
 

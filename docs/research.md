@@ -17,15 +17,17 @@ What we studied before building, and what we took from it. Six research agents (
 
 None of these had RimWorld-specific roles. The RimWorld knowledge (Defs, PatchOperations, `MayRequire`, save compatibility, Multiplayer sync) is written fresh here.
 
-## Roles: 13 drafted, 7 specialists kept
+## Roles: 13 drafted, 9 specialists kept
 
 The first draft had 13 specialists. They were merged where the work produced one artifact or ended at the same human gate:
 
 | Kept | Absorbed |
 |---|---|
-| Designer | Systems designer, content designer, balance analyst, quest/event designer |
+| Systems & Balance | Systems designer, balance analyst |
+| Content & Quest | Content designer, quest/event designer |
 | Writer & Strings | Lore writer, localization (English strings) |
-| Art & Audio | Art director, texture artist, technical artist, sound designer |
+| Art | Art director, texture artist, technical artist |
+| Sound | Sound designer (its own role: different files, tools and sign-off) |
 | Compat & Save | Compat/versioning engineer, save compatibility |
 | UI/UX, Framework/API, MP sync | Unchanged |
 

@@ -24,10 +24,12 @@
 
 | Specialist | Trigger |
 |---|---|
-| Designer | New gameplay Defs, numbers, or a new system |
+| Systems & Balance | A new or changed system or mechanic; any numbers (balance-checked against vanilla) |
+| Content & Quest | New items, animals, factions, research; incidents, quests, events |
 | Writer & Strings | Player-visible text |
 | UI/UX | Gizmos, windows, settings, hotkeys |
-| Art & Audio | Textures, `graphicData`, sounds |
+| Art | Textures, `graphicData`, icons |
+| Sound | `SoundDef`, `SongDef`, sound files |
 | Compat & Save | PatchOperations, dependencies, renames, `ExposeData`, ports |
 | Framework/API | Other mods consume this one |
 | MP sync | C# that changes game state, when Multiplayer matters |

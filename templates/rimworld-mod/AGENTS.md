@@ -38,8 +38,8 @@ Words that mean something specific in this mod. Use them back to me.
 
 Optional. Used by `/rimworld-team`. Remove this section if you don't need it.
 
-- Always add: `<specialists, e.g. designer>`
-- Leave out: `<specialists, e.g. art-audio: art is hand-made>`
+- Always add: `<specialists, e.g. systems-balance>`
+- Leave out: `<specialists, e.g. art: art is hand-made>`
 
 ## Build and test
 
