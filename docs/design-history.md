@@ -265,7 +265,7 @@ All 27 round-1 ids resolved in v2 (blockers: stage/rw_build ban, explicit worksp
 - **Machine-neutral.** `kit.py` finds the Mods folder through Steam (registry + `libraryfolders.vdf`), or takes `--mods`, and saves it in `local.json`. It fills `{{TOOLBOX}}`, `{{MODS}}`, `{{GAME}}`, `{{PLAYER}}`, `{{HOME}}`, `{{APPDATA}}`, `{{LOCALAPPDATA}}` in the kit templates and the skill. `team\` files use the names TOOLBOX, MODS, GAME, PLAYER; the rendered skill gives the Producer the real paths.
 - `--doctor` checks every prerequisite. `--no-trust` skips the trust edits.
 - Personal core mods are out of the role files. Core mods now come from the user's optional `Mods\AGENTS.md` (example in `templates\`). The MP sync specialist triggers only when Multiplayer is a core mod or the mod claims MP support.
-- The `diagnosing-bugs` and `blast-radius` skills had no license, so they are optional-by-name, and the core of each is written into the role files.
+- The `diagnosing-bugs` and `blast-radius` skills are optional-by-name and not bundled; the core of each is written into the role files. Sources: `diagnosing-bugs` from mattpocock/skills (MIT), `blast-radius` from cursor/plugins (pstack). `docs/install.md` links both.
 - `docs\` written; this history moved here from `team\DESIGN.md`.
 
 ## Round 11: specialist split (author's request)

@@ -99,12 +99,12 @@ The skill that started you lists the real paths for this machine. Use them where
 
 | Specialist (`roles\specialists\`) | Trigger in the task or spec |
 |---|---|
-| `systems-balance.md` | A new or changed system or mechanic; any stat, cost, market-value or raid-point numbers |
-| `content-quest.md` | New gameplay Defs (items, weapons, apparel, buildings, animals, pawn kinds, factions, research); incidents, quests, events |
+| `systems-balance.md` | A new or changed system or mechanic; raid-point or wealth scaling; any stat, cost, market-value or raid-point numbers (it leads a pure rebalance) |
+| `content-quest.md` | New or changed gameplay Defs (e.g. items, weapons, apparel, buildings, animals, pawn kinds, factions, research, hediffs, genes); new incidents, quests, events |
 | `writer.md` | Player-visible text |
 | `ui-ux.md` | Gizmo, window, tab, settings UI, hotkey, float menu |
-| `art.md` | Texture, `graphicData`, render tree, icon |
-| `sound.md` | `SoundDef`, `SongDef`, sound files, sound references on verbs, buildings or effecters |
+| `art.md` | A new or changed texture, `graphicData`, render tree or icon, including any new Def that needs one (not when it reuses vanilla art) |
+| `sound.md` | A new or changed sound effect or song (`SoundDef`, `SongDef`, audio files). Pointing a Def at an existing vanilla sound is the Builder's job |
 | `compat-save.md` | PatchOperation, `MayRequire`, LoadFolders, dependency, `defName` rename or removal, `ExposeData`, other-mod conflict, port |
 | `framework-api.md` | Other mods consume this mod |
 | `mp-sync.md` | C# that changes game state, when the RimWorld Multiplayer mod is a core mod or the mod claims Multiplayer support |

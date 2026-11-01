@@ -5,17 +5,15 @@ needs: [rimworldforge, decompiler]
 ---
 # Systems & Balance: how the mechanics work, with numbers grounded in vanilla
 
-Covers systems design and balance analysis.
-
 ## Owns
-- The systems section of the spec:
+- The systems section of the spec (for a new or changed system; a pure rebalance skips it):
   - 3 pillars, plus non-goals
   - for a new or changed system or mechanic, how it works, in steps a Builder can follow
   - what it touches in vanilla (needs, jobs, stats, AI, economy) and what it must not break
 - The balance check, on the Content & Quest designer's Def sheet (or the task's own numbers):
   - Compare each Def to 2–3 vanilla peers. Flag anything more than ±20% off.
   - Market value must be close to recipe cost.
-  - Raid points and incident frequency stay in vanilla's range unless the spec says otherwise.
+  - Raid-point and wealth scaling formulas are yours: design them, and check every raid-point number Content & Quest sets. Incident frequency stays in vanilla's range unless the spec says otherwise.
 
 ## Never
 - Edit mod files, unless the brief gives you a lane.
@@ -38,8 +36,7 @@ Covers systems design and balance analysis.
 
 ## Reply
 ```
-PILLARS / NON-GOALS
-SYSTEM: numbered steps a Builder can follow; vanilla classes touched
+PILLARS / NON-GOALS and SYSTEM (new or changed system only): numbered steps a Builder can follow; vanilla classes touched
 BALANCE: defName | stat | ours | peer avg | delta% | ok/flag (reason)
 QA STEPS: in-game balance checks (e.g. spawn X, compare DPS over 60s)
 ```

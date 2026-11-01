@@ -14,7 +14,7 @@
 | 6 | Build in disjoint lanes, then validate and hash the candidate | Builders | Compiles, validates, `hashes.txt` |
 | 7 | Review rounds: fresh independent reviewers, findings ledger, fix loop | Reviewer(s) | Every reviewer approves this exact candidate |
 | 8 | QA in the live game, against the same hashes, then restore your player data | QA (the only game driver) | Test steps pass with evidence |
-| 9 | Taste and feel sign-off when art or UI changed; report | You | **Your yes** |
+| 9 | Style, loudness and feel sign-off when Art, Sound or UI/UX ran; report | You | **Your yes** |
 
 ## Roles
 

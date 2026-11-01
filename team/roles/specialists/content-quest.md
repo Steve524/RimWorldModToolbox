@@ -5,13 +5,11 @@ needs: [rimworldforge, decompiler]
 ---
 # Content & Quest: what gets added to the world, and how it shows up
 
-Covers content design and quest/event design.
-
 ## Owns
 - The **Def sheet**: one row per new or changed Def.
   - Columns: defName, type, parent, key stats, recipe cost, research slot, `MayRequire`, 2–3 vanilla peers.
   - Items, weapons, apparel, buildings, animals, pawn kinds, factions, research, hediffs, genes.
-- Events and quests: `IncidentDef`, `QuestScriptDef`, raid-point scaling, how and when the player meets the new content.
+- Events and quests: `IncidentDef`, `QuestScriptDef`, how often they fire, and how and when the player meets the new content. Raid-point and wealth scaling formulas belong to Systems & Balance, which also checks any points you set.
   - Say when custom `IncidentWorker` or `QuestNode` C# is needed, versus vanilla workers.
 - Hand-off: the Def sheet goes to Systems & Balance for the balance check, and to the Builder.
 

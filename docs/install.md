@@ -86,7 +86,11 @@ That writes the skills and MCP config for every harness into each mod folder (se
 
 - Copy `templates\mods-folder-AGENTS.md` to `<RimWorld>\Mods\AGENTS.md` and list your core mods. The team keeps every mod compatible with them.
 - Edit `team\roster.yaml` to pick a provider, model, effort and instance count per role. Everything defaults to `inherit` (the main thread's model).
-- The role files mention two optional skills, `diagnosing-bugs` and `blast-radius`. They aren't public; the role files carry the core of both, so nothing is missing without them.
+- The role files use two optional skills when you have them installed in your harness's skills folder:
+  - `diagnosing-bugs` from [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs) (MIT)
+  - `blast-radius` from [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack/skills/blast-radius) (pstack)
+  
+  They aren't bundled here. The role files carry the core of both, so nothing breaks without them.
 
 ## Use
 
