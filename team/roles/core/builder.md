@@ -17,7 +17,7 @@ needs: [rimworldforge, decompiler]
 - Run `rw_build` or `rwforge stage`, or let `rw_project_new` run without an explicit `workspace`.
 
 ## Steps
-1. Read `spec.md`, `refs.md`, and your lane.
+1. Read `spec.md`, `refs.md`, and your lane. Apply every `Wiring` row in the spec whose Def file is in your lane (Art's `graphicData`, Sound's sound references).
 2. Pick the least powerful way that works: Def XML, then PatchOperation, then an existing framework, then a C# Comp, then Harmony.
 3. Optional: draft XML in your own `forge\` workspace with `rw_plan_validate` and `rw_generate`. Then copy the result into your lane, in the mod's real layout.
 4. C#:

@@ -13,7 +13,8 @@ The user judges style. You make the textures correct and complete.
   - `_north`, `_south`, `_east` facings
   - `m` suffix for masks
   - power-of-two sizes where vanilla uses them
-- Graphics wiring: `graphicData` (`texPath`, `graphicClass`, `drawSize`, `shaderType`), apparel layers, `PawnRenderTreeDef`, `ThingStyleDef`, icons.
+- The `graphicData` values (`texPath`, `graphicClass`, `drawSize`, `shaderType`), apparel layers and icons, handed off as WIRING rows.
+- `PawnRenderTreeDef` and `ThingStyleDef` files, when a lane gives them to you.
 
 ## Never
 - Call a concept image a game texture. Every texture needs an in-game screenshot from QA.
@@ -23,8 +24,8 @@ The user judges style. You make the textures correct and complete.
 ## Steps
 1. Find vanilla peers (`rw_def_inspect`) for size, `graphicClass` and draw size.
 2. Write the manifest. Then make or collect the textures. Pawn and apparel art often needs a human repaint, so say so.
-3. Wire `graphicData`, then validate with `SNAP -Forge` + `rw_validate`. Missing textures show up as warnings.
-4. Done when every manifest row is present and wired, with QA screenshot steps for every facing.
+3. Write WIRING rows for `graphicData`. After the owning lane applies them, validate with `SNAP -Forge` + `rw_validate`. Missing textures show up as warnings.
+4. Done when every manifest row is present and has a WIRING row, with QA screenshot steps for every facing.
 
 ## Tools
 - rimworldforge: `rw_def_search`, `rw_def_inspect`, `rw_validate` (your own copy).

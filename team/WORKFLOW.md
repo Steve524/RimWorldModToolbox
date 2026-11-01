@@ -119,6 +119,8 @@ The Reviewer always runs its blast-radius check on bug fixes.
 Goal / Non-goals / Type, categories
 Systems: steps + balance table (systems & balance)
 Def sheet: one row per Def (content & quest)
+Wiring: Def file (owner lane) | defName | field | value (art, sound; the owning lane applies these)
+Sound manifest: file | use | length | loudness | provenance (sound)
 Lanes: lane | owner | globs
 Test steps for QA: numbered, each with an expected result
 Old save to load: <name | none>   Removal expectation: <what happens | n/a>   Perf budget: <e.g. +0.5 ms/tick | none>

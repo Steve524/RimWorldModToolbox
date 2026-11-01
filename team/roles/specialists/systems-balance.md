@@ -22,9 +22,9 @@ needs: [rimworldforge, decompiler]
 
 ## Steps
 1. Read the task and `refs.md`. Find the vanilla system you're changing or extending with the decompiler (its worker, comp or job classes).
-2. Draft pillars, non-goals and the system steps.
+2. New or changed system only: draft pillars, non-goals and the system steps.
 3. When the Def sheet exists, pull peers with `rw_def_search` / `rw_def_inspect` and fill the balance table.
-4. Done when the system has buildable steps, and every number has peers and either fits or has a reason.
+4. Done when any system has buildable steps, and every number has peers and either fits or has a reason.
 
 ## Tools
 - rimworldforge: `rw_def_search`, `rw_def_inspect`, `rw_plan_validate`.
