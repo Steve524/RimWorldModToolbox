@@ -55,4 +55,4 @@ Each role file lists its owned files, the exact MCP tools it may call, the skill
 | `team\roster.yaml` | Who runs each role |
 | `team\roles\` | One file per role |
 | `team\snapshot.ps1` | Baseline copy, hashes, change check, flat Forge workspace |
-| `team\runs\` | One folder per task (spec, ledger, baselines, delegate scratch) |
+| `team\task-logs\` | One folder per task (spec, ledger, baselines, delegate scratch) |

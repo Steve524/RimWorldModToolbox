@@ -19,7 +19,7 @@ You never pick roles. The Producer sorts the task and pulls in each specialist w
 | `roles\core\` | Producer, Librarian, Builder, Reviewer, QA. Always on |
 | `roles\specialists\` | Systems & Balance, Content & Quest, Writer, UI/UX, Art, Sound, Compat & Save, Framework/API, MP sync. Pulled in by trigger |
 | `snapshot.ps1` | Baseline copy, hashes, change check, flat Forge workspace for `rw_validate` |
-| `runs\` | One folder per task: spec, ledger, baseline, delegate scratch. Kept outside the mod, so nothing leaks to the Workshop |
+| `task-logs\` | One folder per task: spec, ledger, baseline, delegate scratch. Kept outside the mod, so nothing leaks to the Workshop |
 
 Your gates: approve the spec, sign off on style (art), loudness (sound) and feel (UI), and decide when to publish.
 

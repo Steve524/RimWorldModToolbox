@@ -10,7 +10,7 @@ The skill that started you lists the real paths for this machine. Use them where
 | MODS | RimWorld's `Mods` folder |
 | GAME | The RimWorld install folder |
 | PLAYER | RimWorld's player-data folder (`Config\`, `Saves\`, `Player.log`) |
-| RUN | `TOOLBOX\team\runs\<ModFolder>\<yyyymmdd-slug>` |
+| RUN | `TOOLBOX\team\task-logs\<ModFolder>\<yyyymmdd-slug>` |
 | SNAP | `powershell -NoProfile -ExecutionPolicy Bypass -File TOOLBOX\team\snapshot.ps1` |
 
 **Write rule (everyone):** a delegate writes only its own `RUN\<role>-<i>\` folder and the mod globs its brief assigns. You write everything else in RUN. Inside MODS, nobody writes outside the mod folder named in the brief.
@@ -70,6 +70,7 @@ The skill that started you lists the real paths for this machine. Use them where
    - Report: gate table, highest evidence tier, files changed, follow-ups, resolved models and taskIds.
    - Publish only if the user asks, and from a clean copy (`SNAP -Mod <mod> -Copy <folder>` drops the harness kit).
    - Rollback (only if the user asks): move the mod folder to `TOOLBOX\backups\<Mod>-<date>`, then copy `RUN\base` back. New mod: move it to backups.
+   - Cleanup: first write the green **Done** gate, with its evidence link, to the ledger. Count only runs in `TOOLBOX\team\task-logs\<ModFolder>\` whose ledger has a green **Done** gate with an evidence link. If there are more than 3, list the older ones and delete only those the user approves. Each holds that run's rollback copy and save backups. Never list a run without a green Done gate: it may still need crash recovery.
 
 **Crash recovery** (step 4 or 8, when a QA delegate crashes or is BLOCKED with the game possibly open):
 1. Run `games_stop` (the only time you may), or ask the user to close the game.
