@@ -6,8 +6,8 @@
 __pycache__/
 
 # Run folders (one per task)
-/team/runs/*
-!/team/runs/.gitkeep
+/team/task-logs/*
+!/team/task-logs/.gitkeep
 
 # The kit installed into this folder by kit.py (machine-specific, generated)
 /.claude/
